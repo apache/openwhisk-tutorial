@@ -1,0 +1,7 @@
+0.1, Aug 13 2013 -- Initial release
+The initial release of the Docker tutorial
+
+0.2 Jun 17 2015 
+— Moved static resources to CDNs
+- terminal js 
+	 

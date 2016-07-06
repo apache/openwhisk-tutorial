@@ -1,0 +1,4 @@
+include *.txt
+include README.md
+recursive-include whisk_tutorial/static *
+recursive-include whisk_tutorial/templates *
