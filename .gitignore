@@ -1,0 +1,8 @@
+.idea
+.coverage
+*.pyc
+DockerTutorial.egg-info
+MANIFEST
+dist/
+htmlcov
+.DS_Store

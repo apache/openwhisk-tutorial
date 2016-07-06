@@ -1,0 +1,7 @@
+1.0 2016 - Various changes
+— Moved static resources to CDNs
+- Upgraded reference to the terminal js to the latest version 
+- Created a new home page including new css and html
+- Added OpenWhisk tutorial content 
+- 
+	 
