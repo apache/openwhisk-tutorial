@@ -1,0 +1,4 @@
+Django>=1.6,<1.7
+South>=0.8,<0.9
+Unipath==0.2.1
+django-markdown-deux
