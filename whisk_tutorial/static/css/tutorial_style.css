@@ -272,7 +272,7 @@
   bottom: 0;
   left: 0;
   margin-top: 70px;
-  overflow-y: scroll;
+  overflow-y: inherit;
 }
 #rightside {
   margin-top: 70px;
