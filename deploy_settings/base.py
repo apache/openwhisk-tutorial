@@ -56,7 +56,7 @@ MEDIA_ROOT = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = PROJECT_ROOT
+STATIC_ROOT = os.path.join(PROJECT_ROOT,'static')
 
 
 PROJECT_PATH = os.path.dirname(os.path.abspath(__file__));

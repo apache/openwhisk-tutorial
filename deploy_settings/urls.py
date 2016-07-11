@@ -26,5 +26,5 @@ urlpatterns = patterns('',
 if settings.DEBUG is False:   #if DEBUG is True it will be served automatically
     print("In URLS - Debug False")
     urlpatterns += patterns('',
-            url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT.child('static')}),
+            url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
 )
