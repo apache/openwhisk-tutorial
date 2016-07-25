@@ -17,17 +17,19 @@ The Whisk tutorial is an interactive learning environment to get familiar with t
 
 Development Guide:
 ==================
-This project uses a simplified Django structure, and it builds on Django 1.6.
+This project uses a simplified Django structure, builds on Django 1.6 and uses Python 2.7. 
 
 
 Setting up the application:
 =================
 1. Clone whisk-tutorial repository to your local machine
-2. Navigate to the whisk-tutorial folder 
+2. Navigate to the whisk-tutorial folder
 
 Running locally: 
 =================
-To run the application locally, execute the following command from the whisk-tutorial directory:
+To run the application locally, execute the following commands from the whisk-tutorial directory:
+
+`pip install -r requirements.txt`
 
 `python manage.py runserver localhost:8080`
 
