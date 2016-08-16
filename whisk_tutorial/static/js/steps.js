@@ -5,7 +5,7 @@
  */
 
 (function() {
-  var COMPLETE_URL, EVENT_TYPES, adv_q, advancedTag, buildfunction, current_question, currentquestion, drawStatusMarker, err, error, f, j, leftside, len, mob_q, next, pkg_q, previous, progressIndicator, q, question, questionNumber, questions, results, rlz_q, statusMarker, switchToAdvanced, switchToBasic, switchToMobileSDK, switchToPackages, switchToRules, switchToTriggers, trigger_q, tutorialTop;
+  var COMPLETE_URL, EVENT_TYPES, adv_q, advancedTag, buildfunction, clearOtherDiv, current_question, currentquestion, drawStatusMarker, err, error, f, j, leftside, len, mob_q, next, pkg_q, previous, progressIndicator, q, question, questionNumber, questions, results, rlz_q, statusMarker, switchToAdvanced, switchToBasic, switchToMobileSDK, switchToPackages, switchToRules, switchToTriggers, trigger_q, tutorialTop;
 
   COMPLETE_URL = "/whats-next/";
 
@@ -427,6 +427,14 @@
     this.webterm.focus();
   };
 
+  clearOtherDiv = function() {
+    $('#advanced').hide();
+    $('#triggers').hide();
+    $('#rules').hide();
+    $('#packages').hide();
+    $('#mobilesdk').hide();
+  };
+
   results = {
     set: function(htmlText, intermediate) {
       if (intermediate) {
@@ -531,6 +539,7 @@
     tutorialTop.animate({
       backgroundColor: "rgb(59, 74, 84)"
     }, 1000);
+    clearOtherDiv();
     stepNumber = 0;
     for (j = 0, len = q.length; j < len; j++) {
       step = q[j];
@@ -560,6 +569,7 @@
       backgroundColor: "rgb(59, 74, 84)"
     }, 1000);
     advancedTag.fadeOut();
+    clearOtherDiv();
     stepNumber = 0;
     for (j = 0, len = trigger_q.length; j < len; j++) {
       step = trigger_q[j];
@@ -588,6 +598,7 @@
       backgroundColor: "rgb(59, 74, 84)"
     }, 1000);
     advancedTag.fadeOut();
+    clearOtherDiv();
     stepNumber = 0;
     for (j = 0, len = rlz_q.length; j < len; j++) {
       step = rlz_q[j];
@@ -616,6 +627,7 @@
       backgroundColor: "rgb(59, 74, 84)"
     }, 1000);
     advancedTag.fadeOut();
+    clearOtherDiv();
     stepNumber = 0;
     for (j = 0, len = pkg_q.length; j < len; j++) {
       step = pkg_q[j];
@@ -644,6 +656,7 @@
       backgroundColor: "rgb(59, 74, 84)"
     }, 1000);
     advancedTag.fadeOut();
+    clearOtherDiv();
     stepNumber = 0;
     for (j = 0, len = mob_q.length; j < len; j++) {
       step = mob_q[j];
@@ -681,6 +694,7 @@
       return switchToBasic();
     });
     marker.removeClass("active");
+    clearOtherDiv();
     stepNumber = 0;
     for (j = 0, len = adv_q.length; j < len; j++) {
       step = adv_q[j];
