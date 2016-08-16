@@ -593,6 +593,15 @@ previous = () ->
   @webterm.focus()
   return
 
+  # hide the other(then basic) div from showing, address issue #7.
+clearOtherDiv = () ->
+  $('#advanced').hide()
+  $('#triggers').hide()
+  $('#rules').hide()
+  $('#packages').hide()
+  $('#mobilesdk').hide()
+  return
+
 
 
 results = {
@@ -688,6 +697,7 @@ window.switchToBasic = switchToBasic = () ->
   statusMarker.nextAll('span').remove()
   leftside.animate({ backgroundColor: "#26343f" }, 1000 )
   tutorialTop.animate({ backgroundColor: "rgb(59, 74, 84)" }, 1000 )
+  clearOtherDiv()
   stepNumber = 0
   for step in q
     questions.push(buildfunction(step))
@@ -710,6 +720,7 @@ window.switchToTriggers = switchToTriggers = () ->
   leftside.animate({ backgroundColor: "#26343f" }, 1000 )
   tutorialTop.animate({ backgroundColor: "rgb(59, 74, 84)" }, 1000 )
   advancedTag.fadeOut()
+  clearOtherDiv()
   stepNumber = 0
   for step in trigger_q
     questions.push(buildfunction(step))
@@ -730,6 +741,7 @@ window.switchToRules = switchToRules = () ->
   leftside.animate({ backgroundColor: "#26343f" }, 1000 )
   tutorialTop.animate({ backgroundColor: "rgb(59, 74, 84)" }, 1000 )
   advancedTag.fadeOut()
+  clearOtherDiv()
   stepNumber = 0
   for step in rlz_q
     questions.push(buildfunction(step))
@@ -750,6 +762,7 @@ window.switchToPackages = switchToPackages = () ->
   leftside.animate({ backgroundColor: "#26343f" }, 1000 )
   tutorialTop.animate({ backgroundColor: "rgb(59, 74, 84)" }, 1000 )
   advancedTag.fadeOut()
+  clearOtherDiv()
   stepNumber = 0
   for step in pkg_q
     questions.push(buildfunction(step))
@@ -771,6 +784,7 @@ window.switchToMobileSDK = switchToMobileSDK = () ->
   leftside.animate({ backgroundColor: "#26343f" }, 1000 )
   tutorialTop.animate({ backgroundColor: "rgb(59, 74, 84)" }, 1000 )
   advancedTag.fadeOut()
+  clearOtherDiv()
   stepNumber = 0
   for step in mob_q
     questions.push(buildfunction(step))
@@ -800,7 +814,7 @@ window.switchToAdvanced = switchToAdvanced = () ->
   marker.find('text').get(0).textContent = '←'
   marker.click( ->switchToBasic() )
   marker.removeClass("active")
-
+  clearOtherDiv()
   stepNumber = 0
   for step in adv_q
     questions.push(buildfunction(step))
