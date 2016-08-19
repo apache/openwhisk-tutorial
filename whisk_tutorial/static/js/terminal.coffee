@@ -322,34 +322,30 @@ do @myTerminal = ->
 
   wsk_help = \
     """
-    usage: wsk [-h] [-v] [--apihost hostname] [--apiversion version]
-           {action,activation,namespace,package,rule,trigger,sdk,property,list}
-           ...
+Usage:
+  wsk [command]
 
-    OpenWhisk is a distributed compute service to add event-driven logic to your
-    apps.
+Available Commands:
+  action      work with actions
+  activation  work with activations
+  package     work with packages
+  rule        work with rules
+  trigger     work with triggers
+  sdk         work with the sdk
+  property    work with whisk properties
+  namespace   work with namespaces
+  list        list available namespaces
 
-    optional arguments:
-      -h, --help            show this help message and exit
-      -v, --verbose         verbose output
-      --apihost hostname    whisk API host
-      --apiversion version  whisk API version
+Flags:
+      --apihost HOST         whisk API HOST
+      --apiversion VERSION   whisk API VERSION
+  -u, --auth KEY             authorization KEY
+  -d, --debug                debug level output
+  -h, --help                 help for wsk
+  -i, --insecure             bypass certificate checking
+  -v, --verbose              verbose output
 
-    available commands:
-      {action,activation,namespace,package,rule,trigger,sdk,property,list}
-        action              work with actions
-        activation          work with activations
-        namespace           work with namespaces
-        package             work with packages
-        rule                work with rules
-        trigger             work with triggers
-        sdk                 work with the SDK
-        property            work with whisk properties
-        list                list all triggers, actions, and rules in the registry
-
-    Learn more at https://developer.ibm.com/openwhisk fork on GitHub
-    https://github.com/openwhisk. All trademarks are the property of their
-    respective owners.
+Use "wsk [command] --help" for more information about a command.
     """
   wsk_invalid_choice = \
     """
@@ -453,10 +449,30 @@ do @myTerminal = ->
 
   wsk_no_args = \
   """
-  usage: wsk [-h] [-v] [--apihost hostname] [--apiversion version]
-           {action,activation,namespace,package,rule,trigger,sdk,property,list}
-           ...
-  wsk: error: too few arguments
+Usage:
+  wsk [command]
+
+Available Commands:
+  action      work with actions
+  activation  work with activations
+  package     work with packages
+  rule        work with rules
+  trigger     work with triggers
+  sdk         work with the sdk
+  property    work with whisk properties
+  namespace   work with namespaces
+  list        list available namespaces
+
+Flags:
+      --apihost HOST         whisk API HOST
+      --apiversion VERSION   whisk API VERSION
+  -u, --auth KEY             authorization KEY
+  -d, --debug                debug level output
+  -h, --help                 help for wsk
+  -i, --insecure             bypass certificate checking
+  -v, --verbose              verbose output
+
+Use "wsk [command] --help" for more information about a command.
   """
 
   wsk_create_action_sequence = \
@@ -466,10 +482,30 @@ do @myTerminal = ->
 
   wsk_unrecognized_arguments = \
   """
-  usage: wsk [-h] [-v] [--apihost hostname] [--apiversion version]
-           {action,activation,namespace,package,rule,trigger,sdk,property,list}
-           ...
-  wsk: error: unrecognized arguments
+Usage:
+  wsk [command]
+
+Available Commands:
+  action      work with actions
+  activation  work with activations
+  package     work with packages
+  rule        work with rules
+  trigger     work with triggers
+  sdk         work with the sdk
+  property    work with whisk properties
+  namespace   work with namespaces
+  list        list available namespaces
+
+Flags:
+      --apihost HOST         whisk API HOST
+      --apiversion VERSION   whisk API VERSION
+  -u, --auth KEY             authorization KEY
+  -d, --debug                debug level output
+  -h, --help                 help for wsk
+  -i, --insecure             bypass certificate checking
+  -v, --verbose              verbose output
+
+Use "wsk [command] --help" for more information about a command.
   """
 
   wsk_package_get = \
