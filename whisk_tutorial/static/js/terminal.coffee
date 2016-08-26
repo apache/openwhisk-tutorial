@@ -269,6 +269,10 @@ do @myTerminal = ->
               echo wsk_create_action_sequence
             else
               echo wsk_unrecognized_arguments
+        if inputs[3] is "helloPython"
+          if inputs[4] is "hello.py"
+             echo wsk_create_action_python
+
       else if inputs[2] is "list"
         echo wsk_list_action_hello
       else if inputs[2] is "invoke" 
@@ -370,6 +374,10 @@ Use "wsk [command] --help" for more information about a command.
   wsk_create_action_hello = \
     """
     ok: created action hello
+    """
+  wsk_create_action_python = \
+    """
+    ok: created action helloPython
     """
   wsk_create_action_hello_v = \
     """

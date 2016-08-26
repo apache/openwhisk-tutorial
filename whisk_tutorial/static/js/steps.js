@@ -104,6 +104,20 @@
   adv_q = [];
 
   adv_q.push({
+    html: "<h3>Creating a python action</h3>\n<p>The process of creating Python actions is similar to that of JavaScript actions.</p>",
+    assignment: "<h3>Assignment</h3>\n<p>Creating a python action</p>",
+    command_expected: ['wsk', 'action', 'create', 'helloPython', 'hello.py'],
+    command_show: ['wsk', 'action', 'create', 'helloPython', 'hello.py'],
+    result: "<p>Great! Python action was created. ",
+    intermediateresults: [
+      function() {
+        return "<p>You seem to be almost there. Did you feed in the wsk action command \"invoke hello\" parameters";
+      }
+    ],
+    tip: "<ul>\n  <li>You could create actions implemented in other languages, such as Java, Swift, they are the same!</li>\n</ul>"
+  });
+
+  adv_q.push({
     html: "<h3>Creating Sequence of actions</h3>\n<p>You can create an action that chains together a sequence of actions.Several utility actions are provided in a package called /whisk.system/util that you can use to create your first sequence. You can learn more about packages in the Packages section. </p>",
     assignment: "<h3>Assignment</h3>\n<p>1. Display the actions in the /whisk.system/util package using <code>wsk package get --summary /whisk.system/util</code> 2. Create an action sequence called \"sequenceOfActions\" so that the result of the <code>/whisk.system/util/cat</code> action is passed as an argument to the <code>/whisk.system/util/sort</code> action. </p>",
     command_expected: ["end_of_tutorial"],

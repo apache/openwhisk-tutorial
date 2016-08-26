@@ -11,7 +11,7 @@
 
 (function() {
   (this.myTerminal = function() {
-    var EMULATOR_VERSION, bash, cat, parseInput, util_slow_lines, wait, wsk, wsk_action_invoke_blocking_hello, wsk_action_invoke_hello, wsk_activation_list, wsk_activation_result, wsk_cat_helloWorld, wsk_create_action_hello, wsk_create_action_hello_v, wsk_create_action_sequence, wsk_help, wsk_invalid_choice, wsk_list_action_hello, wsk_no_args, wsk_package_get, wsk_trigger_created, wsk_unrecognized_arguments;
+    var EMULATOR_VERSION, bash, cat, parseInput, util_slow_lines, wait, wsk, wsk_action_invoke_blocking_hello, wsk_action_invoke_hello, wsk_activation_list, wsk_activation_result, wsk_cat_helloWorld, wsk_create_action_hello, wsk_create_action_hello_v, wsk_create_action_python, wsk_create_action_sequence, wsk_help, wsk_invalid_choice, wsk_list_action_hello, wsk_no_args, wsk_package_get, wsk_trigger_created, wsk_unrecognized_arguments;
     EMULATOR_VERSION = "0.1.3";
     this.basesettings = {
       prompt: 'you@tutorial:~$ ',
@@ -261,6 +261,11 @@
               }
             }
           }
+          if (inputs[3] === "helloPython") {
+            if (inputs[4] === "hello.py") {
+              echo(wsk_create_action_python);
+            }
+          }
         } else if (inputs[2] === "list") {
           echo(wsk_list_action_hello);
         } else if (inputs[2] === "invoke") {
@@ -320,6 +325,7 @@
     wsk_trigger_created = "trigger created";
     wsk_cat_helloWorld = "function main(params) {\n    return {payload:  'Hello world'};\n}";
     wsk_create_action_hello = "ok: created action hello";
+    wsk_create_action_python = "ok: created action helloPython";
     wsk_create_action_hello_v = "{'apihost': 'openwhisk.ng.bluemix.net', 'namespace': 'jstart', 'clibuild': '2016-03-03T09:55:47-06:00', 'apiversion': 'v1'}\n========\nREQUEST:\nPUT https://openwhisk.ng.bluemix.net/api/v1/namespaces/jstart/actions/hello\nHeaders sent:\n{\n    \"Authorization\": \"Basic \n     UyLWJJkYu65JKhu7YjM0ZDcwODhlNzBiOmlFS3RWMHl0UWdIT1SxUGNrMUFJRHUzSF2VlFSV53hDUnZlVXhyMGJpbTBGeH827=\",\n    \"Content-Type\": \"application/json\"\n}\nBody sent:\n{\"exec\": {\"kind\": \"nodejs\", \"code\": \"function main(params) {\n   return {payload:  'Hello, ' + params.name + ' from ' + params.place};\n}\n\n\"}}\n--------\nRESPONSE:\nGot response with code 200\nBody received:\n{\n  \"name\": \"hello\",\n  \"publish\": false,\n  \"annotations\": [],\n  \"version\": \"0.0.1\",\n  \"exec\": {\n    \"kind\": \"nodejs\",\n    \"code\": \"function main(params) {\n   return {payload:  'Hello, ' + params.name + ' from ' + params.place};\n}\n\n\"\n  },\n  \"parameters\": [],\n  \"limits\": {\n    \"timeout\": 60000,\n    \"memory\": 256\n  },\n  \"namespace\": \"jstart\"\n}\n========\nok: created action hello";
     wsk_list_action_hello = "actions\nhello                                             private";
     wsk_action_invoke_hello = "ok: invoked hello with id 6bf1f670ee614a7eb5af3c9fde813043";

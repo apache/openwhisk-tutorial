@@ -171,6 +171,30 @@ finishedCallback: () ->
 ###
 
 adv_q = []
+
+adv_q.push ({
+html: """
+      <h3>Creating a python action</h3>
+      <p>The process of creating Python actions is similar to that of JavaScript actions.</p>
+      """
+assignment: """
+            <h3>Assignment</h3>
+            <p>Creating a python action</p>
+            """
+command_expected: ['wsk', 'action', 'create', 'helloPython', 'hello.py']
+command_show: ['wsk', 'action', 'create', 'helloPython','hello.py']
+
+result: """<p>Great! Python action was created. """
+intermediateresults: [
+  () -> """<p>You seem to be almost there. Did you feed in the wsk action command "invoke hello" parameters"""
+  ]
+tip:  """
+      <ul>
+        <li>You could create actions implemented in other languages, such as Java, Swift, they are the same!</li>
+      </ul>
+      """
+})
+
 adv_q.push ({
 html: """
       <h3>Creating Sequence of actions</h3>
