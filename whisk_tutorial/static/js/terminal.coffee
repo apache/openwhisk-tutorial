@@ -289,18 +289,25 @@ do @myTerminal = ->
         if inputs[3] is "myTrigger"
           intermediateResults(0)
           echo wsk_trigger_created
+      if inputs[2] is "delete"
+        if inputs[3] is "myTrigger"
+          intermediateResults(0)
+          echo wsk_trigger_deleted
 
     else if inputs[1] is "rule"
       if inputs[2] is "create"
         if inputs[3] is "myRule"
-          intermediateResults(0)
-          #TO DO: Echo correct output
+          if inputs[4] is "myTrigger"
+            if inputs[5] is "hello"
+              intermediateResults(0)
+              echo wsk_rule_created
+
 
     else if inputs[1] is "package"
       if inputs[2] is "create"
         if inputs[3] is "myPackage"
           intermediateResults(0)
-          #TO DO: Echo correct output
+          echo wsk_package_created
 
 
     else if inputs[1] is "activation"
@@ -319,7 +326,7 @@ do @myTerminal = ->
 
     else if inputs[1] is "images"
       echo currentCloudImages
-    
+
     return
 
 
@@ -361,7 +368,21 @@ Use "wsk [command] --help" for more information about a command.
 
   wsk_trigger_created = \
     """
-    trigger created
+    ok: created trigger myTrigger
+    """
+
+  wsk_trigger_deleted = \
+    """
+    ok deleted myTrigger
+    """
+  wsk_rule_created = \
+    """
+    ok: created rule myRule
+    """
+
+  wsk_package_created = \
+    """
+    ok: create package myPackage
     """
 
   wsk_cat_helloWorld = \

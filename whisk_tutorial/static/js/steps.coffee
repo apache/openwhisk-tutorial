@@ -248,17 +248,42 @@ finishedCallback: () ->
 trigger_q = []
 
 trigger_q.push ({
-html: """
+  html: """
       <h3>Creating Triggers</h3>
       <p>You can create a trigger using the trigger command</p>
       """
-assignment: """
+  assignment: """
       <h3>Assignment</h3>
       <p>Create a trigger called 'myTrigger'</p>
       """
 #command_expected: ["wsk", "trigger", "create", "myTrigger"]
+  command_expected: ["end_of_tutorial"] #Used to signify end of tutorial
+  command_show: ["wsk", "trigger", "create", "myTrigger"]
+
+  result: """<p>Great! You have created the Trigger"""
+  intermediateresults:
+    [
+      () -> """<p>You seem to be almost there."""
+    ]
+  tip:  """
+      <ul>
+        <li>You could create rules and associate triggers with actions!</li>
+      </ul>
+      """
+})
+
+trigger_q.push ({
+html: """
+      <h3>Deleteing Triggers</h3>
+      <p>You can delete a trigger using the trigger command</p>
+      """
+assignment: """
+      <h3>Assignment</h3>
+      <p>Delete the created trigger called 'myTrigger'</p>
+      """
+#command_expected: ["wsk", "trigger", "create", "myTrigger"]
 command_expected: ["end_of_tutorial"] #Used to signify end of tutorial
-command_show: ["wsk", "trigger", "create", "myTrigger"]
+command_show: ["wsk", "trigger", "delete", "myTrigger"]
 
 result: """<p>Great! You have completed the Trigger tutorial!"""
 tip: """
@@ -286,8 +311,6 @@ tip: """<ul>
 finishedCallback: () ->
   webterm.clear()
   webterm.echo( myTerminal() )
-
-
 })
 
 
@@ -307,7 +330,7 @@ assignment: """
       """
 #command_expected: ["wsk", "rule", "create", "myRule"]
 command_expected: ["end_of_tutorial"] #Used to signify end of tutorial
-command_show: ["wsk", "rule", "create", "myRule"]
+command_show: ["wsk", "rule", "create", "myRule", "myTrigger", "hello"]
 
 result: """<p>Great! You Have completed the Rules tutorial!"""
 tip: """

@@ -155,6 +155,20 @@
     assignment: "<h3>Assignment</h3>\n<p>Create a trigger called 'myTrigger'</p>",
     command_expected: ["end_of_tutorial"],
     command_show: ["wsk", "trigger", "create", "myTrigger"],
+    result: "<p>Great! You have created the Trigger",
+    intermediateresults: [
+      function() {
+        return "<p>You seem to be almost there.";
+      }
+    ],
+    tip: "<ul>\n  <li>You could create rules and associate triggers with actions!</li>\n</ul>"
+  });
+
+  trigger_q.push({
+    html: "<h3>Deleteing Triggers</h3>\n<p>You can delete a trigger using the trigger command</p>",
+    assignment: "<h3>Assignment</h3>\n<p>Delete the created trigger called 'myTrigger'</p>",
+    command_expected: ["end_of_tutorial"],
+    command_show: ["wsk", "trigger", "delete", "myTrigger"],
     result: "<p>Great! You have completed the Trigger tutorial!",
     tip: "  ",
     intermediateresults: [
@@ -187,7 +201,7 @@
     html: "<h3>Creating a rule</h3>\n<p>You can create a rule using the rule command</p>",
     assignment: "<h3>Assignment</h3>\n<p>Create a rule called 'myRule'</p>",
     command_expected: ["end_of_tutorial"],
-    command_show: ["wsk", "rule", "create", "myRule"],
+    command_show: ["wsk", "rule", "create", "myRule", "myTrigger", "hello"],
     result: "<p>Great! You Have completed the Rules tutorial!",
     tip: "  ",
     intermediateresults: [

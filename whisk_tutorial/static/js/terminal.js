@@ -11,7 +11,7 @@
 
 (function() {
   (this.myTerminal = function() {
-    var EMULATOR_VERSION, bash, cat, parseInput, util_slow_lines, wait, wsk, wsk_action_invoke_blocking_hello, wsk_action_invoke_hello, wsk_activation_list, wsk_activation_result, wsk_cat_helloWorld, wsk_create_action_hello, wsk_create_action_hello_v, wsk_create_action_python, wsk_create_action_sequence, wsk_help, wsk_invalid_choice, wsk_list_action_hello, wsk_no_args, wsk_package_get, wsk_trigger_created, wsk_unrecognized_arguments;
+    var EMULATOR_VERSION, bash, cat, parseInput, util_slow_lines, wait, wsk, wsk_action_invoke_blocking_hello, wsk_action_invoke_hello, wsk_activation_list, wsk_activation_result, wsk_cat_helloWorld, wsk_create_action_hello, wsk_create_action_hello_v, wsk_create_action_python, wsk_create_action_sequence, wsk_help, wsk_invalid_choice, wsk_list_action_hello, wsk_no_args, wsk_package_created, wsk_package_get, wsk_rule_created, wsk_trigger_created, wsk_trigger_deleted, wsk_unrecognized_arguments;
     EMULATOR_VERSION = "0.1.3";
     this.basesettings = {
       prompt: 'you@tutorial:~$ ',
@@ -286,16 +286,28 @@
             echo(wsk_trigger_created);
           }
         }
+        if (inputs[2] === "delete") {
+          if (inputs[3] === "myTrigger") {
+            intermediateResults(0);
+            echo(wsk_trigger_deleted);
+          }
+        }
       } else if (inputs[1] === "rule") {
         if (inputs[2] === "create") {
           if (inputs[3] === "myRule") {
-            intermediateResults(0);
+            if (inputs[4] === "myTrigger") {
+              if (inputs[5] === "hello") {
+                intermediateResults(0);
+                echo(wsk_rule_created);
+              }
+            }
           }
         }
       } else if (inputs[1] === "package") {
         if (inputs[2] === "create") {
           if (inputs[3] === "myPackage") {
             intermediateResults(0);
+            echo(wsk_package_created);
           }
         }
       } else if (inputs[1] === "activation") {
@@ -322,7 +334,10 @@
     };
     wsk_help = "Usage:\n  wsk [command]\n\nAvailable Commands:\n  action      work with actions\n  activation  work with activations\n  package     work with packages\n  rule        work with rules\n  trigger     work with triggers\n  sdk         work with the sdk\n  property    work with whisk properties\n  namespace   work with namespaces\n  list        list available namespaces\n\nFlags:\n      --apihost HOST         whisk API HOST\n      --apiversion VERSION   whisk API VERSION\n  -u, --auth KEY             authorization KEY\n  -d, --debug                debug level output\n  -h, --help                 help for wsk\n  -i, --insecure             bypass certificate checking\n  -v, --verbose              verbose output\n\nUse \"wsk [command] --help\" for more information about a command.";
     wsk_invalid_choice = "usage: wsk [-h] [-v] [--apihost hostname] [--apiversion version]\n       {action,activation,namespace,package,rule,trigger,sdk,property,list}\n       ...\nwsk: error: argument cmd: invalid choice: (choose from 'action', 'activation', 'namespace', 'package', 'rule', 'trigger', 'sdk', 'property', 'list')";
-    wsk_trigger_created = "trigger created";
+    wsk_trigger_created = "ok: created trigger myTrigger";
+    wsk_trigger_deleted = "ok deleted myTrigger";
+    wsk_rule_created = "ok: created rule myRule";
+    wsk_package_created = "ok: create package myPackage";
     wsk_cat_helloWorld = "function main(params) {\n    return {payload:  'Hello world'};\n}";
     wsk_create_action_hello = "ok: created action hello";
     wsk_create_action_python = "ok: created action helloPython";
