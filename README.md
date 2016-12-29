@@ -33,6 +33,19 @@ To run the application locally, execute the following commands from the whisk-tu
 
 `python manage.py runserver localhost:8080`
 
+Running with Docker
+=================
+If you don't want bother run locally, you can run the tutorial in Docker with following comand:
+
+`docker build -t openwhisk-tutorial .`
+This command will help build the tutorial docker image.
+
+`sudo docker run --name whisk-tutorial  -p 8081:8000 -d openwhisk-tutorial`
+THis command will start a container running the tutorial app with name whisk-tutorial, and map
+port 8081 from host to port 8000 in the container.
+
+Now, open your host web browser, and nagivate to http://localhost:8081, you should be able to practice
+with the tutorial now.
 
 Running on Bluemix:
 ===================
