@@ -137,3 +137,5 @@ Report bugs, ask questions and request features [here on GitHub](../../issues).
 We welcome contributions, but request you follow these [guidelines](CONTRIBUTING.md)
 
 Happy coding!
+
+This is a test for email notifications
