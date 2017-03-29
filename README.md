@@ -138,4 +138,4 @@ We welcome contributions, but request you follow these [guidelines](CONTRIBUTING
 
 Happy coding!
 
-This is a test for email notifications
+This is a test for faster travis
