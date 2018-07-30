@@ -3861,7 +3861,7 @@
                 return d.promise();
             },
             // -------------------------------------------------------------
-            // :: bypass login function that wait untill you type user/pass
+            // :: bypass login function that wait until you type user/pass
             // :: it hide implementation detail
             // -------------------------------------------------------------
             autologin: function(user, token, silent) {

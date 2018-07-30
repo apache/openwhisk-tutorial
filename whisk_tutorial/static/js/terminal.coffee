@@ -186,7 +186,7 @@ do @myTerminal = ->
 
     term.pause()
     i = 0
-    # function calls itself after timeout is done, untill
+    # function calls itself after timeout is done, until
     # all lines are finished
     foo = (lines) ->
       self.setTimeout ( ->
